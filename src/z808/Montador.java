@@ -757,13 +757,36 @@ public class Montador {
                     }else{
                         end1 = codigo[i];
                         modo1="";
-                    }
-                    end2 = "";
-                    modo2 = "";
+                    }i++;
                     
-                    gravarArq.append((i-1) +" "+"74 "+end1+modo1+ " "+end2+modo2);
+                    
+                    if(eNumero(codigo[i])){
+                        if(!procurarNaTabela(codigo[i])){
+                            colocarNaTabelaDeSimbolos(codigo[i],"a");//Se é var
+                            end2 = ""+ultimoEndereco();
+                            modo2="r";
+                        }else{
+                            end2 = tabelaSimbolos[enderecoNaTabela(codigo[i])][2];
+                            modo2 = tabelaSimbolos[enderecoNaTabela(codigo[i])][1];
+                        }
+                        
+                    }else if(!codigo[i].equals("ax")&&!codigo[i].equals("dx")){
+                        if(!procurarNaTabela(codigo[i])){
+                            colocarNaTabelaDeSimbolos(codigo[i],"a");//Se é var
+                            end2 = ""+ultimoEndereco();
+                            modo2="r";
+                        }else{
+                            end2 = tabelaSimbolos[enderecoNaTabela(codigo[i])][2];
+                            modo2 = tabelaSimbolos[enderecoNaTabela(codigo[i])][1];
+                        }
+                    }else{
+                        end2 = codigo[i];
+                        modo2="";
+                    }
+                    
+                    gravarArq.append((i-2) +" "+"74 "+end1+modo1+ " "+end2+modo2);
                     gravarArq.newLine();
-                    System.out.println((i-1) +" "+"74 "+end1+modo1+ " "+end2+modo2);
+                    System.out.println((i-2) +" "+"74 "+end1+modo1+ " "+end2+modo2);
                 break;
                 case "jnz":
                     

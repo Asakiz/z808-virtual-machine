@@ -239,6 +239,35 @@ public class MV {
                         ax *= Integer.parseInt(codigo[i]);
                     }
                     break;
+                    
+                case "jmp":
+                    i = Integer.parseInt(codigo[i]);
+                    break;
+                   
+                case "je":
+                    if(ax == Integer.parseInt(codigo[i])){
+                       i++;
+                       i = Integer.parseInt(codigo[i]);
+                    }
+                break;
+                
+                case "jnz":
+                    if(ax<=0){
+                        i = Integer.parseInt(codigo[i]);
+                    }
+                break;
+                
+                case "jz":
+                    if(ax==0){
+                        i = Integer.parseInt(codigo[i]);
+                    }
+                break;
+                
+                case "jp":
+                    if(ax>=0){
+                        i = Integer.parseInt(codigo[i]);
+                    }
+                break;
             
                 case "and":
                    
@@ -272,6 +301,10 @@ public class MV {
                     i++;
 
                     if(codigo[i].equals("ax"))ax = ~ax;
+                    else
+                    if(codigo[i].equals("dx"))ax = ~dx;
+                    else
+                    if(eNumero(codigo[i]))ax = ~Integer.parseInt(codigo[i]);
 
                 case "or":
 
