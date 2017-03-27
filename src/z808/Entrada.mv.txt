@@ -1,0 +1,13 @@
+add 10 11
+m1
+sub 10 ax
+macro m1
+add ax k
+sub 2 dx
+endm
+sub dx dx
+macro m2
+add ax k
+sub 2 dx
+endm
+sub dx dx

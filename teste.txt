@@ -1,0 +1,17 @@
+add 10 11
+m1
+div 10
+mul 2
+call 4 a
+ret x x
+sub 10 ax
+macro m1
+add ax k
+sub dx 2
+endm
+sub dx dx
+macro m2
+add ax k
+sub dx k
+endm
+sub dx dx
