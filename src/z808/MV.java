@@ -101,13 +101,14 @@ public class MV {
                 
                 case "sub":
                     i++;
+
                     if(codigo[i].equals("ax")){
-                        ax -=ax;
+                        ax -= ax;
                     }else 
                     if(codigo[i].equals("dx")){
-                        ax -=dx;
+                        ax -= dx;
                     }else 
-                    if(!eNumero(codigo[i])){
+                    if(!eNumero(codigo[i])) {
                         int index = eVar(codigo[i]);
                         if(index !=-1 ){
                             ax-=valorVar[index];
@@ -116,6 +117,7 @@ public class MV {
                         }
                     }else{
                         ax -= Integer.parseInt(codigo[i]);
+                        System.out.println(codigo[i]);
                     }
                     i++;
                     
@@ -241,32 +243,47 @@ public class MV {
                     break;
                     
                 case "jmp":
+                    i++;
+
                     i = Integer.parseInt(codigo[i]);
+
                     break;
                    
                 case "je":
+
+                    i++;
+
                     if(ax == Integer.parseInt(codigo[i])){
-                       i++;
+            
                        i = Integer.parseInt(codigo[i]);
+
                     }
+
                 break;
                 
                 case "jnz":
-                    if(ax<=0){
+
+                    if(ax<=0) {
                         i = Integer.parseInt(codigo[i]);
                     }
                 break;
                 
                 case "jz":
-                    if(ax==0){
+
+                    i++;
+
+                    if(ax==0) {
                         i = Integer.parseInt(codigo[i]);
                     }
+
                 break;
                 
                 case "jp":
+
                     if(ax>=0){
                         i = Integer.parseInt(codigo[i]);
                     }
+
                 break;
             
                 case "and":
