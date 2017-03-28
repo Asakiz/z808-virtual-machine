@@ -243,19 +243,22 @@ public class MV {
                     break;
                     
                 case "jmp":
+
                     i++;
-
+                    
                     i = Integer.parseInt(codigo[i]);
-
+                    
                     break;
                    
                 case "je":
 
                     i++;
 
-                    if(ax == Integer.parseInt(codigo[i])){
+                    if(ax == Integer.parseInt(codigo[i])) {
+
+                        i++;
             
-                       i = Integer.parseInt(codigo[i]);
+                        i = Integer.parseInt(codigo[i]);
 
                     }
 
@@ -263,8 +266,14 @@ public class MV {
                 
                 case "jnz":
 
-                    if(ax<=0) {
+                    i++;
+
+                    if(ax <= 0) {
+
+                        i++;
+
                         i = Integer.parseInt(codigo[i]);
+
                     }
                 break;
                 
@@ -272,16 +281,26 @@ public class MV {
 
                     i++;
 
-                    if(ax==0) {
+                    if(ax == 0) {
+
+                        i++;
+
                         i = Integer.parseInt(codigo[i]);
+
                     }
 
                 break;
                 
                 case "jp":
 
-                    if(ax>=0){
+                    i++;
+
+                    if(ax >= 0) {
+
+                        i++;
+
                         i = Integer.parseInt(codigo[i]);
+                        
                     }
 
                 break;
@@ -380,6 +399,6 @@ public class MV {
         }
         
     }
-    
+
  
 }
